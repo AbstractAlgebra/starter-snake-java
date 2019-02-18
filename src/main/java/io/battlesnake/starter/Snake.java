@@ -121,7 +121,7 @@ public class Snake {
             Map<String, String> response = new HashMap<>();
             int height = moveRequest.get("board").get("height").asInt();
             int width = moveRequest.get("board").get("width").asInt();
-            int health = moveRequest.get("health").get("health").asInt();
+            int health = moveRequest.get("you").get("health").asInt();
             int[][] board = new int[width][height];
 
             for(JsonNode snake : moveRequest.get("board").get("snakes"))
