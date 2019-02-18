@@ -128,7 +128,7 @@ public class Snake {
             {
                 for (JsonNode snakeBody : snake.get("body"))
                 {
-                    board[snakeBody.get("x")][snakeBody.get("y")] = 1;
+                    board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = 1;
                 }
             }
 
