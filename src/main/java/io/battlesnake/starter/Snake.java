@@ -119,9 +119,9 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-            final SAFE = 0;
-            final SNAKE = 1;
-            final FOOD = 2;
+            final int SAFE = 0;
+            final int SNAKE = 1;
+            final int FOOD = 2;
             int height = moveRequest.get("board").get("height").asInt();
             int width = moveRequest.get("board").get("width").asInt();
             int health = moveRequest.get("you").get("health").asInt();
