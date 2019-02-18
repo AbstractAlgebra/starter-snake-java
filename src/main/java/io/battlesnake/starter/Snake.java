@@ -124,9 +124,9 @@ public class Snake {
             int health = moveRequest.get("health").get("health").asInt();
             int[][] board = new int[width][height];
 
-            for(int[] snake : moveRequest.get("board").get("snakes"))
+            for(JsonNode snake : moveRequest.get("board").get("snakes"))
             {
-                for (int[] snakeBody : snake.get("body"))
+                for (JsonNode snakeBody : snake.get("body"))
                 {
                     board[snakeBody.get("x")][snakeBody.get("y")] = 1;
                 }
