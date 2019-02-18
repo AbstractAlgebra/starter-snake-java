@@ -138,7 +138,7 @@ public class Snake {
             {
                 for(int y = 0; y < height; y++)
                 {
-                    System.out.print(board[x][y]);
+                    System.out.print(board[y][x]);
                 }
                 System.out.println();
             }
