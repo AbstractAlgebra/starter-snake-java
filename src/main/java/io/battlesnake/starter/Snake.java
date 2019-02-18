@@ -143,7 +143,6 @@ public class Snake {
                 System.out.println();
             }
 
-            moveRequest.get("board").
             response.put("move", "right");
             return response;
         }
