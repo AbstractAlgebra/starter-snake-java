@@ -122,7 +122,9 @@ public class Snake {
             final int SAFE = 0;
             final int SNAKE = 1;
             final int FOOD = 2;
-            final int HEAD = 3;
+            final int OTHERHEAD = 3;
+            final int MYHEAD = 3;
+
             int height = moveRequest.get("board").get("height").asInt();
             int width = moveRequest.get("board").get("width").asInt();
             int health = moveRequest.get("you").get("health").asInt();
@@ -131,6 +133,10 @@ public class Snake {
 
             for(JsonNode snake : moveRequest.get("board").get("snakes"))
             {
+
+                int otherHeadX = snake.get("body").elements().next().get("x").asInt();
+                int otherHeadY = snake.get("you").get("body").elements().next().get("y").asInt();
+                board[otherHeadX][otherHeadY] = OTHERHEAD;
                 for (JsonNode snakeBody : snake.get("body"))
                 {
                     board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = SNAKE;
@@ -145,7 +151,7 @@ public class Snake {
             //find head
             int headX = moveRequest.get("you").get("body").elements().next().get("x").asInt();
             int headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
-            board[headX][headY] = HEAD;
+            board[headX][headY] = MYHEAD;
 
 
             System.out.println();
