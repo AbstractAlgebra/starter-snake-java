@@ -119,6 +119,31 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
+            int height = moveRequest.get("board").get("height").asInt();
+            int width = moveRequest.get("board").get("width").asInt();
+            int health = moveRequest.get("health").get("health").asInt();
+            int[][] board = new int[width][height];
+
+            for(int[] snake : moveRequest.get("board").get("snakes"))
+            {
+                for (int[] snakeBody : snake.get("body"))
+                {
+                    board[snakeBody.get("x")][snakeBody.get("y")] = 1;
+                }
+            }
+
+
+            System.out.println();
+            for(int x = 0; x < width; x++)
+            {
+                for(int y = 0; y < height; y++)
+                {
+                    System.out.print(board[x][y]);
+                }
+                System.out.println();
+            }
+
+            moveRequest.get("board").
             response.put("move", "right");
             return response;
         }
