@@ -135,7 +135,7 @@ public class Snake {
             {
 
                 int otherHeadX = snake.get("body").elements().next().get("x").asInt();
-                int otherHeadY = snake.get("you").get("body").elements().next().get("y").asInt();
+                int otherHeadY = snake..get("body").elements().next().get("y").asInt();
                 board[otherHeadX][otherHeadY] = OTHERHEAD;
                 for (JsonNode snakeBody : snake.get("body"))
                 {
