@@ -143,8 +143,8 @@ public class Snake {
             }
 
             //find head
-            headX = moveRequest.get("you").get("body").elements().next().get("x").asInt();
-            headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
+            int headX = moveRequest.get("you").get("body").elements().next().get("x").asInt();
+            int headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
             board[headX][headY] = HEAD;
 
 
