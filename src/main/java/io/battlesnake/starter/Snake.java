@@ -119,6 +119,9 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
+            final SAFE = 0;
+            final SNAKE = 1;
+            final FOOD = 2;
             int height = moveRequest.get("board").get("height").asInt();
             int width = moveRequest.get("board").get("width").asInt();
             int health = moveRequest.get("you").get("health").asInt();
@@ -128,8 +131,13 @@ public class Snake {
             {
                 for (JsonNode snakeBody : snake.get("body"))
                 {
-                    board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = 1;
+                    board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = SNAKE;
                 }
+            }
+
+            for (JsonNode food : moveRequest.get("board").get("food"))
+            {
+                board[food.get("x")][food.get("y")] = FOOD;
             }
 
 
