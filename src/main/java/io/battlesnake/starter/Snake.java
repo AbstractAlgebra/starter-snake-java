@@ -123,7 +123,7 @@ public class Snake {
             final int SNAKE = 1;
             final int FOOD = 2;
             final int OTHERHEAD = 3;
-            final int MYHEAD = 3;
+            final int MYHEAD = 4;
 
             int height = moveRequest.get("board").get("height").asInt();
             int width = moveRequest.get("board").get("width").asInt();
