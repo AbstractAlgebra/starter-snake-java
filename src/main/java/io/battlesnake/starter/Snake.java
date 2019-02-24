@@ -9,6 +9,8 @@ import spark.Response;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+
 
 import static spark.Spark.port;
 import static spark.Spark.post;
@@ -29,8 +31,8 @@ public class Snake {
    
     public static final double inf = Double.POSITIVE_INFINITY;
     public static int[][] globalBoard;
-    public static final int globalWidth;
-    public static final int globalHeight;
+    public static int globalWidth;
+    public static int globalHeight;
     /**
      * Main entry point.
      *
