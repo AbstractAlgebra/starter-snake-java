@@ -266,6 +266,7 @@ public class Snake {
                     }
                 }
                 TupleB current = lowestTupleB;
+                System.out.println("Current: " + current);
                 if(current.equals(goal))
                 {
                     return reconstructPath(cameFrom, current);
