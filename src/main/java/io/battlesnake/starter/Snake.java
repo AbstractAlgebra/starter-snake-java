@@ -191,9 +191,9 @@ public class Snake {
             return response;
         }
 
-        public static reconstructPath(Map<Tuple,Tuple> cameFrom, Tuple current)
+        public static Set<Tuple> reconstructPath(Map<Tuple,Tuple> cameFrom, Tuple current)
         {
-            PriorityQueue totalPath = new PriorityQueue();
+            Set<Tuple> totalPath = new Set<Tuple>();
             totalPath.add(current);
             while(cameFrom.contains(current))
             {
