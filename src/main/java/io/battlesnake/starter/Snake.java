@@ -288,6 +288,7 @@ public class Snake {
             System.out.println("A*4");
                         if (!openSet.contains(neighbour))
                         {
+                            System.out.println("OS Contains: " + neighbour);
                             openSet.add(neighbour);
                         }
                         else if (tentativegScore >= gScore.getOrDefault(neighbour,inf))
@@ -345,5 +346,9 @@ class TupleB
     public boolean equals(TupleB o)
     {
         return (this.x == o.x && this.y == o.y);
+    }
+    public String toString()
+    {
+        return "(" + x + ", " + y + ")";
     }
 }
