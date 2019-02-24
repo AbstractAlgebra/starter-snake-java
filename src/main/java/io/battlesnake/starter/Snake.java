@@ -190,9 +190,9 @@ public class Snake {
             return response;
         }
 
-        public static Set<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
+        public static HashSet<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
         {
-            Set<TupleB> totalPath = new HashSet<TupleB>();
+            HashSet<TupleB> totalPath = new HashSet<TupleB>();
             totalPath.add(current);
             while(cameFrom.containsKey(current))
             {
@@ -222,7 +222,7 @@ public class Snake {
 
             while(!openSet.isEmpty())
             {
-                HashSet< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
+                Set< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
                 double lowestScore = inf;
                 TupleB lowestTupleB;
                 for(Map.Entry<TupleB,Double> me:st)
