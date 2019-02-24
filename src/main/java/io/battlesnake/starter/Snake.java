@@ -288,7 +288,7 @@ public class Snake {
 
 
 }
-public class TupleB
+class TupleB
 {
     public int x;
     public int y;
