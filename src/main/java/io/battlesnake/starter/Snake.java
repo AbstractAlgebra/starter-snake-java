@@ -184,26 +184,26 @@ public class Snake {
                 System.out.println();
             }
 
-            TupleB nextSpot = AStar(meHead,food).iterator.next();
+            TupleB nextSpot = AStar(meHead,food).iterator().next();
 
-            String response = "";
+            String responseString = "";
             if(nextSpot.x>meHead.x)
             {
-                response= "right";
+                responseString= "right";
             }
             if(nextSpot.x<meHead.x)
             {
-                response= "left";
+                responseString= "left";
             }
             if(nextSpot.y>meHead.y)
             {
-                response= "down";
+                responseString= "down";
             }            
             if(nextSpot.y<meHead.y)
             {
-                response= "up";
+                responseString= "up";
             }
-            response.put("move", response);
+            responseString.put("move", responseString);
             return response;
         }
 
