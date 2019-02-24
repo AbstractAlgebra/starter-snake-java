@@ -16,10 +16,6 @@ import static spark.Spark.get;
 
 import java.util.PriorityQueue;
 
-static final double inf = Double.POSITIVE_INFINITY;
-static int[][] globalBoard;
-static final globalWidth;
-static final globalHeight;
 
 /**
  * Snake server that deals with requests from the snake engine.
@@ -30,7 +26,11 @@ public class Snake {
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final Handler HANDLER = new Handler();
     private static final Logger LOG = LoggerFactory.getLogger(Snake.class);
-
+   
+    static final double inf = Double.POSITIVE_INFINITY;
+    static int[][] globalBoard;
+    static final globalWidth;
+    static final globalHeight;
     /**
      * Main entry point.
      *
@@ -284,7 +284,7 @@ public class Snake {
         // final int FOOD = 2;
         // final int OTHERHEAD = 3;
         // final int MYHEAD = 4;
-        
+
     }
 
     public static class Tuple
