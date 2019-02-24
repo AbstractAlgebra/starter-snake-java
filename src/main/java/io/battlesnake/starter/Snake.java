@@ -10,7 +10,7 @@ import spark.Response;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+import Tuple;
 
 import static spark.Spark.port;
 import static spark.Spark.post;
@@ -193,7 +193,7 @@ public class Snake {
 
         public static Set<Tuple> reconstructPath(Map<Tuple,Tuple> cameFrom, Tuple current)
         {
-            Set<Tuple> totalPath = new Set<Tuple>();
+            Set<Tuple> totalPath = new HashSet<Tuple>();
             totalPath.add(current);
             while(cameFrom.contains(current))
             {
@@ -287,21 +287,5 @@ public class Snake {
 
     }
 
-    public static class Tuple
-    {
-        int x;
-        int y;
-
-        public Tuple(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public boolean equals(Tuple o)
-        {
-            return (this.x == o.x && this.y == o.y);
-        }
-    }
 
 }
