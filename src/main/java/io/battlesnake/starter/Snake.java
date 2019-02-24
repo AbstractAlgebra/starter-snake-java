@@ -261,6 +261,7 @@ public class Snake {
                     {
                         lowestScore = me.getValue();
                         lowestTupleB = me.getKey();
+                        System.out.println("Score is: " + lowestScore);
                     }
                 }
                 TupleB current = lowestTupleB;
