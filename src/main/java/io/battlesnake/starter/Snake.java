@@ -62,7 +62,7 @@ public class Snake {
         /**
          * For the ping request
          */
-        private static final Map<String, String> EMPTY = new HashMap<>();
+        private static final HashMap<String, String> EMPTY = new HashMap<>();
 
         /**
          * Generic processor that prints out the request and response from the methods.
@@ -71,12 +71,12 @@ public class Snake {
          * @param res
          * @return
          */
-        public Map<String, String> process(Request req, Response res) {
+        public HashMap<String, String> process(Request req, Response res) {
             try {
                 JsonNode parsedRequest = JSON_MAPPER.readTree(req.body());
                 String uri = req.uri();
                 LOG.info("{} called with: {}", uri, req.body());
-                Map<String, String> snakeResponse;
+                HashMap<String, String> snakeResponse;
                 if (uri.equals("/start")) {
                     snakeResponse = start(parsedRequest);
                 } else if (uri.equals("/ping")) {
@@ -100,21 +100,21 @@ public class Snake {
          * /ping is called by the play application during the tournament or on play.battlesnake.io to make sure your
          * snake is still alive.
          *
-         * @param pingRequest a map containing the JSON sent to this snake. See the spec for details of what this contains.
+         * @param pingRequest a HashMap containing the JSON sent to this snake. See the spec for details of what this contains.
          * @return an empty response.
          */
-        public Map<String, String> ping() {
+        public HashMap<String, String> ping() {
             return EMPTY;
         }
 
         /**
          * /start is called by the engine when a game is first run.
          *
-         * @param startRequest a map containing the JSON sent to this snake. See the spec for details of what this contains.
+         * @param startRequest a HashMap containing the JSON sent to this snake. See the spec for details of what this contains.
          * @return a response back to the engine containing the snake setup values.
          */
-        public Map<String, String> start(JsonNode startRequest) {
-            Map<String, String> response = new HashMap<>();
+        public HashMap<String, String> start(JsonNode startRequest) {
+            HashMap<String, String> response = new HashMap<>();
             response.put("color", "#ff00ff");
             return response;
         }
@@ -122,11 +122,11 @@ public class Snake {
         /**
          * /move is called by the engine for each turn the snake has.
          *
-         * @param moveRequest a map containing the JSON sent to this snake. See the spec for details of what this contains.
+         * @param moveRequest a HashMap containing the JSON sent to this snake. See the spec for details of what this contains.
          * @return a response back to the engine containing snake movement values.
          */
-        public Map<String, String> move(JsonNode moveRequest) {
-            Map<String, String> response = new HashMap<>();
+        public HashMap<String, String> move(JsonNode moveRequest) {
+            HashMap<String, String> response = new HashMap<>();
             final int SAFE = 0;
             final int SNAKE = 1;
             final int FOOD = 2;
@@ -182,19 +182,19 @@ public class Snake {
         /**
          * /end is called by the engine when a game is complete.
          *
-         * @param endRequest a map containing the JSON sent to this snake. See the spec for details of what this contains.
+         * @param endRequest a HashMap containing the JSON sent to this snake. See the spec for details of what this contains.
          * @return responses back to the engine are ignored.
          */
-        public Map<String, String> end(JsonNode endRequest) {
-            Map<String, String> response = new HashMap<>();
+        public HashMap<String, String> end(JsonNode endRequest) {
+            HashMap<String, String> response = new HashMap<>();
             return response;
         }
 
         public static Set<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
         {
-            Set<Object> totalPath = new HashSet<Object>();
+            Set<TupleB> totalPath = new HashSet<TupleB>();
             totalPath.add(current);
-            while(cameFrom.contains(current))
+            while(cameFrom.containsKey(current))
             {
                 current = cameFrom.get(current);
                 totalPath.add(current);
@@ -211,18 +211,18 @@ public class Snake {
             Set<TupleB> openSet = new HashSet<TupleB>();
             openSet.add(start);
 
-            Map<TupleB,TupleB> cameFrom = new Map<TupleB,TupleB>();
-            Map<TupleB,Double> gScore = new Map<TupleB,Double>();
+            HashMap<TupleB,TupleB> cameFrom = new HashMap<TupleB,TupleB>();
+            HashMap<TupleB,Double> gScore = new HashMap<TupleB,Double>();
 
             gScore.put(start,0);
 
-            Map<TupleB,Double> fScore = new Map<TupleB,Double>();
+            HashMap<TupleB,Double> fScore = new HashMap<TupleB,Double>();
 
-            fscore.put(start,heuristic_cost_estimate(start,goal));
+            fScore.put(start,heuristicCostEstimate(start,goal));
 
             while(!openSet.isEmpty())
             {
-                HashSet< Map.Entry<TupleB,Double> > st = fscore.entrySet(); 
+                HashSet< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
                 double lowestScore = inf;
                 TupleB lowestTupleB;
                 for(Map.Entry<TupleB,Double> me:st)
@@ -233,7 +233,7 @@ public class Snake {
                         lowestTupleB = me.getKey();
                     }
                 }
-                current = lowestTupleB;
+                TupleB current = lowestTupleB;
                 if(current.equals(goal))
                 {
                     return reconstructPath(cameFrom, current);
@@ -257,7 +257,7 @@ public class Snake {
                         {
                             openSet.add(neighbour);
                         }
-                        else if (tentativegScore >= gscore.get(neighbour))
+                        else if (tentativegScore >= gScore.get(neighbour))
                         {
                             continue;
                         }
