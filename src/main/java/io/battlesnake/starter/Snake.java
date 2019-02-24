@@ -140,11 +140,9 @@ public class Snake {
 
             globalHeight = height;
             globalWidth = width;
-            globalBoard = board;
-
-
 
             int[][] board = new int[width][height];
+            globalBoard = board;
 
             for(JsonNode snake : moveRequest.get("board").get("snakes"))
             {
@@ -209,9 +207,9 @@ public class Snake {
         public static void AStar(Tuple start, Tuple goal)
         {
 
-            Set<Tuple> closedSet = new Set<Tuple>();
+            Set<Tuple> closedSet = new HashSet<Tuple>();
 
-            Set<Tuple> openSet = new Set<Tuple>();
+            Set<Tuple> openSet = new HashSet<Tuple>();
             openSet.add(start);
 
             Map<Tuple,Tuple> cameFrom = new Map<Tuple,Tuple>();
@@ -225,7 +223,7 @@ public class Snake {
 
             while(!openSet.isEmpty())
             {
-                Set< Map.Entry<Tuple,Double> > st = fscore.entrySet(); 
+                HashSet< Map.Entry<Tuple,Double> > st = fscore.entrySet(); 
                 double lowestScore = inf;
                 Tuple lowestTuple;
                 for(Map.Entry<Tuple,Double> me:st)
