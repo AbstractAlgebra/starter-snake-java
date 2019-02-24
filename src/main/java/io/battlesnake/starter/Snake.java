@@ -346,10 +346,10 @@ class TupleB
     public boolean equals(Object o)
     {
         System.out.println("in equals");
-        System.out.println(o.x + " " + o.y);
+        System.out.println(((TupleB)o).x + " " + ((TupleB)o).y);
         System.out.println(x + " " + y);
-        System.out.println(x == o.x && y == o.y);
-        return (x == o.x && y == o.y);
+        System.out.println(x == ((TupleB)o).x && y == ((TupleB)o).y);
+        return (x == ((TupleB)o).x && y == ((TupleB)o).y);
     }
     public String toString()
     {
