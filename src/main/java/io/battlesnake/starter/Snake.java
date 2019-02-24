@@ -235,7 +235,7 @@ public class Snake {
 
         public static LinkedHashSet<TupleB> AStar(TupleB start, TupleB goal)
         {
-
+            System.out.println("A*1");
             Set<TupleB> closedSet = new LinkedHashSet<TupleB>();
 
             Set<TupleB> openSet = new LinkedHashSet<TupleB>();
@@ -249,7 +249,7 @@ public class Snake {
             HashMap<TupleB,Double> fScore = new HashMap<TupleB,Double>();
 
             fScore.put(start,heuristicCostEstimate(start,goal));
-
+            System.out.println("A*2");
             while(!openSet.isEmpty())
             {
                 Set< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
@@ -271,7 +271,7 @@ public class Snake {
 
                 openSet.remove(current);
                 closedSet.add(current);
-
+            System.out.println("A*3");
                 for(int i = -1; i < 2; i+=2)
                 {
                     for(int j = -1; j < 2; j+=2)
@@ -282,7 +282,7 @@ public class Snake {
                             continue;
                         }
                         double tentativegScore = gScore.get(current) + distBetween(current,neighbour);
-
+            System.out.println("A*4");
                         if (!openSet.contains(neighbour))
                         {
                             openSet.add(neighbour);
