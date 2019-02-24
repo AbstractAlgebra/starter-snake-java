@@ -317,7 +317,7 @@ public class Snake {
         final int FOOD = 2;
         final int OTHERHEAD = 3;
         final int MYHEAD = 4;
-        if (globalBoard[b.x][b.y] == SNAKE || b.x < 0 || b.x > globalWidth-1 || b.y < 0 || y.x > globalHeight-1)
+        if (globalBoard[b.x][b.y] == SNAKE || b.x < 0 || b.x > globalWidth-1 || b.y < 0 || b.y > globalHeight-1)
         {
             return 100000;
         }
