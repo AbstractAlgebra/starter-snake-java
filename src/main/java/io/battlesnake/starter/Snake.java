@@ -27,10 +27,10 @@ public class Snake {
     private static final Handler HANDLER = new Handler();
     private static final Logger LOG = LoggerFactory.getLogger(Snake.class);
    
-    static final double inf = Double.POSITIVE_INFINITY;
-    static int[][] globalBoard;
-    static final globalWidth;
-    static final globalHeight;
+    public static final double inf = Double.POSITIVE_INFINITY;
+    public static int[][] globalBoard;
+    public static final globalWidth;
+    public static final globalHeight;
     /**
      * Main entry point.
      *
@@ -237,7 +237,7 @@ public class Snake {
                 current = lowestTuple;
                 if(current.equals(goal))
                 {
-                    return reconstructPath(cameFrom, current)
+                    return reconstructPath(cameFrom, current);
                 }
 
                 openSet.remove(current);
@@ -300,7 +300,7 @@ public class Snake {
 
         public boolean equals(Tuple o)
         {
-            return (this.x == o.x && this.y == o.y)
+            return (this.x == o.x && this.y == o.y);
         }
     }
 
