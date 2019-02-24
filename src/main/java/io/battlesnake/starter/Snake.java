@@ -270,8 +270,8 @@ public class Snake {
                 {
                     return reconstructPath(cameFrom, current);
                 }
-                System.out.println("OS Length: " + openSet.size);
-                System.out.println("CS Length: " + closedSet.size);
+                System.out.println("OS Length: " + openSet.size());
+                System.out.println("CS Length: " + closedSet.size());
                 openSet.remove(current);
                 closedSet.add(current);
             System.out.println("A*3");
