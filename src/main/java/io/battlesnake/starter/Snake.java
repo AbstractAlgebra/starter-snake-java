@@ -183,7 +183,7 @@ public class Snake {
                 }
                 System.out.println();
             }
-            System.out.println("Pre A*")
+            System.out.println("Pre A*");
             TupleB nextSpot = AStar(meHead,food).iterator().next();
             System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
 
