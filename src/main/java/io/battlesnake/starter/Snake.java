@@ -203,7 +203,7 @@ public class Snake {
             {
                 responseString= "up";
             }
-            responseString.put("move", responseString);
+            response.put("move", responseString);
             return response;
         }
 
@@ -308,11 +308,11 @@ public class Snake {
 
     public static double heuristicCostEstimate(TupleB a, TupleB b)
     {
-        // final int SAFE = 0;
-        // final int SNAKE = 1;
-        // final int FOOD = 2;
-        // final int OTHERHEAD = 3;
-        // final int MYHEAD = 4;
+        final int SAFE = 0;
+        final int SNAKE = 1;
+        final int FOOD = 2;
+        final int OTHERHEAD = 3;
+        final int MYHEAD = 4;
         if (globalBoard[b.x][b.y] == SNAKE)
         {
             return 100000;
