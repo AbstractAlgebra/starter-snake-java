@@ -1,15 +1,15 @@
-public class Tuple
+public class TupleB
 {
     public int x;
     public int y;
 
-    public Tuple(int x, int y)
+    public TupleB(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
-    public boolean equals(Tuple o)
+    public boolean equals(TupleB o)
     {
         return (this.x == o.x && this.y == o.y);
     }

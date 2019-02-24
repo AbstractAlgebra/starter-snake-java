@@ -190,9 +190,9 @@ public class Snake {
             return response;
         }
 
-        public static Set<Tuple> reconstructPath(Map<Tuple,Tuple> cameFrom, Tuple current)
+        public static Set<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
         {
-            Set<Tuple> totalPath = new HashSet<Tuple>();
+            Set<TupleB> totalPath = new HashSet<TupleB>();
             totalPath.add(current);
             while(cameFrom.contains(current))
             {
@@ -203,37 +203,37 @@ public class Snake {
 
         }
 
-        public static void AStar(Tuple start, Tuple goal)
+        public static void AStar(TupleB start, TupleB goal)
         {
 
-            Set<Tuple> closedSet = new HashSet<Tuple>();
+            Set<TupleB> closedSet = new HashSet<TupleB>();
 
-            Set<Tuple> openSet = new HashSet<Tuple>();
+            Set<TupleB> openSet = new HashSet<TupleB>();
             openSet.add(start);
 
-            Map<Tuple,Tuple> cameFrom = new Map<Tuple,Tuple>();
-            Map<Tuple,Double> gScore = new Map<Tuple,Double>();
+            Map<TupleB,TupleB> cameFrom = new Map<TupleB,TupleB>();
+            Map<TupleB,Double> gScore = new Map<TupleB,Double>();
 
             gScore.put(start,0);
 
-            Map<Tuple,Double> fScore = new Map<Tuple,Double>();
+            Map<TupleB,Double> fScore = new Map<TupleB,Double>();
 
             fscore.put(start,heuristic_cost_estimate(start,goal));
 
             while(!openSet.isEmpty())
             {
-                HashSet< Map.Entry<Tuple,Double> > st = fscore.entrySet(); 
+                HashSet< Map.Entry<TupleB,Double> > st = fscore.entrySet(); 
                 double lowestScore = inf;
-                Tuple lowestTuple;
-                for(Map.Entry<Tuple,Double> me:st)
+                TupleB lowestTupleB;
+                for(Map.Entry<TupleB,Double> me:st)
                 {
                     if (me.getValue() < lowestScore)
                     {
                         lowestScore = me.getValue();
-                        lowestTuple = me.getKey();
+                        lowestTupleB = me.getKey();
                     }
                 }
-                current = lowestTuple;
+                current = lowestTupleB;
                 if(current.equals(goal))
                 {
                     return reconstructPath(cameFrom, current);
@@ -246,7 +246,7 @@ public class Snake {
                 {
                     for(int j = -1; j < 2; j+=2)
                     {
-                        Tuple neighbour = new Tuple(current.x+i,current.x+j);
+                        TupleB neighbour = new TupleB(current.x+i,current.x+j);
                         if (closedSet.contains(neighbour))
                         {
                             continue;
@@ -271,12 +271,12 @@ public class Snake {
         }
     }
 
-    public static double distBetween(Tuple a, Tuple b)
+    public static double distBetween(TupleB a, TupleB b)
     {
         return (Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
     }
 
-    public static double heuristicCostEstimate(Tuple a, Tuple b)
+    public static double heuristicCostEstimate(TupleB a, TupleB b)
     {
         // final int SAFE = 0;
         // final int SNAKE = 1;
