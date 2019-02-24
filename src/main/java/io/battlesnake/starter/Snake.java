@@ -203,7 +203,7 @@ public class Snake {
 
         }
 
-        public static void AStar(TupleB start, TupleB goal)
+        public static HashSet<TupleB> AStar(TupleB start, TupleB goal)
         {
 
             Set<TupleB> closedSet = new HashSet<TupleB>();
