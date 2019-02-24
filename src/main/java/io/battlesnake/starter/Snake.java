@@ -183,7 +183,8 @@ public class Snake {
                 }
                 System.out.println();
             }
-            HashSet<TupleB> nextSpot = AStar(meHead,food);
+            LinkedHashSet<TupleB> nextSpot = AStar(meHead,food);
+            
 
             response.put("move", "right");
             return response;
@@ -200,9 +201,9 @@ public class Snake {
             return response;
         }
 
-        public static HashSet<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
+        public static LinkedHashSet<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
         {
-            HashSet<TupleB> totalPath = new HashSet<TupleB>();
+            LinkedHashSet<TupleB> totalPath = new LinkedHashSet<TupleB>();
             totalPath.add(current);
             while(cameFrom.containsKey(current))
             {
@@ -213,12 +214,12 @@ public class Snake {
 
         }
 
-        public static HashSet<TupleB> AStar(TupleB start, TupleB goal)
+        public static LinkedHashSet<TupleB> AStar(TupleB start, TupleB goal)
         {
 
-            Set<TupleB> closedSet = new HashSet<TupleB>();
+            Set<TupleB> closedSet = new LinkedHashSet<TupleB>();
 
-            Set<TupleB> openSet = new HashSet<TupleB>();
+            Set<TupleB> openSet = new LinkedHashSet<TupleB>();
             openSet.add(start);
 
             HashMap<TupleB,TupleB> cameFrom = new HashMap<TupleB,TupleB>();
@@ -278,7 +279,7 @@ public class Snake {
                     }
                 }
             }
-            return new HashSet<TupleB>();
+            return new LinkedHashSet<TupleB>();
         }
 
     }
