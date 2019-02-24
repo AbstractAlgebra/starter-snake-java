@@ -228,6 +228,7 @@ public class Snake {
                 current = cameFrom.get(current);
                 totalPath.add(current);
             }
+            System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
             return totalPath;
 
         }
@@ -275,7 +276,7 @@ public class Snake {
                 {
                     for(int j = -1; j < 2; j+=2)
                     {
-                        TupleB neighbour = new TupleB(current.x+i,current.x+j);
+                        TupleB neighbour = new TupleB(current.x+i,current.y+j);
                         if (closedSet.contains(neighbour))
                         {
                             continue;
