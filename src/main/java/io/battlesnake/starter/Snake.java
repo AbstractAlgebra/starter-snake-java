@@ -214,7 +214,7 @@ public class Snake {
             HashMap<TupleB,TupleB> cameFrom = new HashMap<TupleB,TupleB>();
             HashMap<TupleB,Double> gScore = new HashMap<TupleB,Double>();
 
-            gScore.put(start,0);
+            gScore.put(start,double(0));
 
             HashMap<TupleB,Double> fScore = new HashMap<TupleB,Double>();
 
