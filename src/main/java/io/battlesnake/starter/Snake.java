@@ -164,16 +164,26 @@ public class Snake {
             int headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
             board[headX][headY] = MYHEAD;
 
-
+            TupleB food = null;
+            TupleB meHead = null;
             System.out.println();
             for(int x = 0; x < width; x++)
             {
                 for(int y = 0; y < height; y++)
                 {
                     System.out.print(board[y][x]);
+                    if(board[y][x] == FOOD)
+                    {
+                        food = new TupleB(x,y);
+                    }
+                    if(board[y][x] == MYHEAD)
+                    {
+                        meHead = new TupleB(x,y)
+                    }
                 }
                 System.out.println();
             }
+            HashSet<TupleB> nextSpot = AStar(meHead,food);
 
             response.put("move", "right");
             return response;
