@@ -14,6 +14,13 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 import static spark.Spark.get;
 
+import java.util.PriorityQueue;
+
+static final double inf = Double.POSITIVE_INFINITY;
+static int[][] globalBoard;
+static final globalWidth;
+static final globalHeight;
+
 /**
  * Snake server that deals with requests from the snake engine.
  * Just boiler plate code.  See the readme to get started.
@@ -129,6 +136,12 @@ public class Snake {
             int width = moveRequest.get("board").get("width").asInt();
             int health = moveRequest.get("you").get("health").asInt();
 
+            globalHeight = height;
+            globalWidth = width;
+            globalBoard = board;
+
+
+
             int[][] board = new int[width][height];
 
             for(JsonNode snake : moveRequest.get("board").get("snakes"))
@@ -176,6 +189,118 @@ public class Snake {
         public Map<String, String> end(JsonNode endRequest) {
             Map<String, String> response = new HashMap<>();
             return response;
+        }
+
+        public static reconstructPath(Map<Tuple,Tuple> cameFrom, Tuple current)
+        {
+            PriorityQueue totalPath = new PriorityQueue();
+            totalPath.add(current);
+            while(cameFrom.contains(current))
+            {
+                current = cameFrom.get(current);
+                totalPath.add(current);
+            }
+            return totalPath;
+
+        }
+
+        public static AStar(Tuple start, Tuple goal)
+        {
+
+            Set<Tuple> closedSet = new Set<Tuple>();
+
+            Set<Tuple> openSet = new Set<Tuple>();
+            openSet.add(start);
+
+            Map<Tuple,Tuple> cameFrom = new Map<Tuple,Tuple>();
+            Map<Tuple,Double> gScore = new Map<Tuple,Double>();
+
+            gScore.put(start,0);
+
+            Map<Tuple,Double> fScore = new Map<Tuple,Double>();
+
+            fscore.put(start,heuristic_cost_estimate(start,goal));
+
+            while(!openSet.isEmpty())
+            {
+                Set< Map.Entry<Tuple,Double> > st = fscore.entrySet(); 
+                double lowestScore = inf;
+                Tuple lowestTuple;
+                for(Map.Entry<Tuple,Double> me:st)
+                {
+                    if (me.getValue() < lowestScore)
+                    {
+                        lowestScore = me.getValue();
+                        lowestTuple = me.getKey();
+                    }
+                }
+                current = lowestTuple;
+                if(current.equals(goal))
+                {
+                    return reconstructPath(cameFrom, current)
+                }
+
+                openSet.remove(current);
+                closedSet.add(current);
+
+                for(int i = -1; i < 2; i+=2)
+                {
+                    for(int j = -1; j < 2; j+=2)
+                    {
+                        Tuple neighbour = new Tuple(current.x+i,current.x+j);
+                        if (closedSet.contains(neighbour))
+                        {
+                            continue;
+                        }
+                        tentativegScore = gScore.get(current) + distBetween(current,neighbour);
+
+                        if (!openSet.contains(neighbour))
+                        {
+                            openSet.add(neighbour);
+                        }
+                        else if (tentativegScore >= gscore.get(neighbour))
+                        {
+                            continue;
+                        }
+
+                        cameFrom.put(neighbour,current);
+                        gScore.put(neighbour,tentativegScore);
+                        fScore.put(neighbour,gScore.get(neighbour)+heuristicCostEstimate(neighbour, goal));
+                    }
+                }
+            }
+        }
+    }
+
+    public static double distBetween(Tuple a, Tuple b)
+    {
+        return (Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
+    }
+
+    public static double heuristicCostEstimate(Tuple a, Tuple b)
+    {
+        // final int SAFE = 0;
+        // final int SNAKE = 1;
+        // final int FOOD = 2;
+        // final int OTHERHEAD = 3;
+        // final int MYHEAD = 4;
+        
+    }
+
+    public static class Tuple
+    {
+        int x;
+        int y;
+
+        public Tuple(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        public boolean equals(Tuple o)
+        {
+            return (this.x == o.x && this.y == o.y)
         }
     }
 
