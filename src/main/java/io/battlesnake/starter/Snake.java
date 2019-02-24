@@ -346,7 +346,8 @@ class TupleB
     public boolean equals(TupleB o)
     {
         System.out.println("in equals");
-        System.println(o);
+        System.println(o.x + " " + o.y);
+        System.println(x + " " + y);
         System.println(x == o.x && y == o.y);
         return (x == o.x && y == o.y);
     }
