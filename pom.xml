@@ -51,7 +51,6 @@
                         <argument>-classpath</argument>
                         <classpath/>
                         <argument>io.battlesnake.starter.Snake</argument>
-                        <argument>io.battlesnake.starter.TupleB</argument>
                     </arguments>
                 </configuration>
             </plugin>
