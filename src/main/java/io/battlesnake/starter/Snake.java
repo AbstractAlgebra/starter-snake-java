@@ -192,7 +192,7 @@ public class Snake {
 
         public static Set<TupleB> reconstructPath(Map<TupleB,TupleB> cameFrom, TupleB current)
         {
-            Set<TupleB> totalPath = new HashSet<TupleB>();
+            Set<Object> totalPath = new HashSet<Object>();
             totalPath.add(current);
             while(cameFrom.contains(current))
             {
