@@ -225,7 +225,7 @@ public class Snake {
             totalPath.add(current);
             while(cameFrom.containsKey(current))
             {
-                current = cameFrom.get(current);
+                current = cameFrom.getOrDefault(current,inf);
                 totalPath.add(current);
             }
             System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
@@ -281,20 +281,20 @@ public class Snake {
                         {
                             continue;
                         }
-                        double tentativegScore = gScore.get(current) + distBetween(current,neighbour);
+                        double tentativegScore = gScore.getOrDefault(current,inf) + distBetween(current,neighbour);
             System.out.println("A*4");
                         if (!openSet.contains(neighbour))
                         {
                             openSet.add(neighbour);
                         }
-                        else if (tentativegScore >= gScore.get(neighbour))
+                        else if (tentativegScore >= gScore.getOrDefault(neighbour,inf))
                         {
                             continue;
                         }
 
                         cameFrom.put(neighbour,current);
                         gScore.put(neighbour,tentativegScore);
-                        fScore.put(neighbour,gScore.get(neighbour)+heuristicCostEstimate(neighbour, goal));
+                        fScore.put(neighbour,gScore.getOrDefault(neighbour,inf)+heuristicCostEstimate(neighbour, goal));
                     }
                 }
             }
