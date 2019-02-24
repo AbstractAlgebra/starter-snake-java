@@ -1,7 +1,7 @@
 public class Tuple
 {
-    int x;
-    int y;
+    public int x;
+    public int y;
 
     public Tuple(int x, int y)
     {
