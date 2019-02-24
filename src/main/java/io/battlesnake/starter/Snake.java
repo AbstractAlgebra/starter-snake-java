@@ -251,7 +251,7 @@ public class Snake {
                         {
                             continue;
                         }
-                        tentativegScore = gScore.get(current) + distBetween(current,neighbour);
+                        double tentativegScore = gScore.get(current) + distBetween(current,neighbour);
 
                         if (!openSet.contains(neighbour))
                         {
