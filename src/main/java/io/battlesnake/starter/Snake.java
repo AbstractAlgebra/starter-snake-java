@@ -343,7 +343,7 @@ class TupleB
         this.y = y;
     }
 
-    public boolean equals(TupleB o)
+    public boolean equals(Object o)
     {
         System.out.println("in equals");
         System.out.println(o.x + " " + o.y);
