@@ -1,4 +1,4 @@
-public static class Tuple
+public class Tuple
 {
     int x;
     int y;
