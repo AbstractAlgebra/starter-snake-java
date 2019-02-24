@@ -268,7 +268,9 @@ public class Snake {
                     }
                 }
             }
+            return 
         }
+
     }
 
     public static double distBetween(TupleB a, TupleB b)
@@ -283,7 +285,7 @@ public class Snake {
         // final int FOOD = 2;
         // final int OTHERHEAD = 3;
         // final int MYHEAD = 4;
-
+        return 1;
     }
 
 
