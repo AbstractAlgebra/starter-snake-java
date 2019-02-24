@@ -224,7 +224,7 @@ public class Snake {
             {
                 Set< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
                 double lowestScore = inf;
-                TupleB lowestTupleB;
+                TupleB lowestTupleB = null;
                 for(Map.Entry<TupleB,Double> me:st)
                 {
                     if (me.getValue() < lowestScore)
