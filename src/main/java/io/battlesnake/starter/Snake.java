@@ -355,4 +355,8 @@ class TupleB
     {
         return "(" + x + ", " + y + ")";
     }
+    public int hashCode()
+    {
+        return x*1000000+y;
+    }
 }
