@@ -178,15 +178,32 @@ public class Snake {
                     }
                     if(board[y][x] == MYHEAD)
                     {
-                        meHead = new TupleB(x,y)
+                        meHead = new TupleB(x,y);
                     }
                 }
                 System.out.println();
             }
-            LinkedHashSet<TupleB> nextSpot = AStar(meHead,food);
-            
 
-            response.put("move", "right");
+            TupleB nextSpot = AStar(meHead,food).iterator.next();
+
+            String response = "";
+            if(nextSpot.x>meHead.x)
+            {
+                response= "right";
+            }
+            if(nextSpot.x<meHead.x)
+            {
+                response= "left";
+            }
+            if(nextSpot.y>meHead.y)
+            {
+                response= "down";
+            }            
+            if(nextSpot.y<meHead.y)
+            {
+                response= "up";
+            }
+            response.put("move", response);
             return response;
         }
 
@@ -296,7 +313,15 @@ public class Snake {
         // final int FOOD = 2;
         // final int OTHERHEAD = 3;
         // final int MYHEAD = 4;
-        return 1;
+        if (globalBoard[b.x][b.y] == SNAKE)
+        {
+            return 100000;
+        }
+        else
+        {
+            return 1;
+        }
+
     }
 
 
