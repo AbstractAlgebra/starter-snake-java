@@ -268,7 +268,7 @@ public class Snake {
                     }
                 }
             }
-            return 
+            return new HashSet<TupleB>();
         }
 
     }
