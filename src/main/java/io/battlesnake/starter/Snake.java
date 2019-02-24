@@ -225,7 +225,7 @@ public class Snake {
             totalPath.add(current);
             while(cameFrom.containsKey(current))
             {
-                current = cameFrom.getOrDefault(current,inf);
+                current = cameFrom.get(current);
                 totalPath.add(current);
             }
             System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
