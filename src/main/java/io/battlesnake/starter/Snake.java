@@ -29,8 +29,8 @@ public class Snake {
    
     public static final double inf = Double.POSITIVE_INFINITY;
     public static int[][] globalBoard;
-    public static final globalWidth;
-    public static final globalHeight;
+    public static final int globalWidth;
+    public static final int globalHeight;
     /**
      * Main entry point.
      *
@@ -204,7 +204,7 @@ public class Snake {
 
         }
 
-        public static AStar(Tuple start, Tuple goal)
+        public static void AStar(Tuple start, Tuple goal)
         {
 
             Set<Tuple> closedSet = new Set<Tuple>();
