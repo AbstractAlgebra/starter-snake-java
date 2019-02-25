@@ -293,35 +293,50 @@ public class Snake {
                 openSet.remove(current);
                 closedSet.add(current);
                 //System.out.println("A*3");
-                for(int i = -1; i < 2; i+=2)
+                for(int i = 0; i < 4; i++)
                 {
-                    for(int j = -1; j < 2; j+=2)
+                    TupleB neighbour = null;
+                    switch(i)
                     {
-                        TupleB neighbour = new TupleB(current.x+i,current.y+j);
-                        if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1)
-                        {
-                            continue;
-                        }
-                        if (closedSet.contains(neighbour))
-                        {
-                            continue;
-                        }
-                        double tentativegScore = gScore.getOrDefault(current,inf) + distBetween(current,neighbour);
-                        //System.out.println("A*4");
-                        if (!openSet.contains(neighbour))
-                        {
-                            //System.out.println("OS Contains: " + neighbour);
-                            openSet.add(neighbour);
-                        }
-                        else if (tentativegScore >= gScore.getOrDefault(neighbour,inf))
-                        {
-                            continue;
-                        }
+                        case 0:
+                            TupleB = new TupleB(current.x+1,current.y);
+                        break;
+                        case 1:
+                            TupleB = new TupleB(current.x-1,current.y);
+                        break;
 
-                        cameFrom.put(neighbour,current);
-                        gScore.put(neighbour,tentativegScore);
-                        fScore.put(neighbour,gScore.getOrDefault(neighbour,inf)+heuristicCostEstimate(neighbour, goal));
+                        case 2:
+                            TupleB = new TupleB(current.x,current.y+1);
+                        break;
+
+                        case 3:
+                            TupleB = new TupleB(current.x,current.y-1);
+                        break;
+
                     }
+                    if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1)
+                    {
+                        continue;
+                    }
+                    if (closedSet.contains(neighbour))
+                    {
+                        continue;
+                    }
+                    double tentativegScore = gScore.getOrDefault(current,inf) + distBetween(current,neighbour);
+                    //System.out.println("A*4");
+                    if (!openSet.contains(neighbour))
+                    {
+                        //System.out.println("OS Contains: " + neighbour);
+                        openSet.add(neighbour);
+                    }
+                    else if (tentativegScore >= gScore.getOrDefault(neighbour,inf))
+                    {
+                        continue;
+                    }
+
+                    cameFrom.put(neighbour,current);
+                    gScore.put(neighbour,tentativegScore);
+                    fScore.put(neighbour,gScore.getOrDefault(neighbour,inf)+heuristicCostEstimate(neighbour, goal));
                 }
             }
             return new LinkedHashSet<TupleB>();
