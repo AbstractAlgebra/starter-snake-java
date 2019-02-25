@@ -346,7 +346,7 @@ public class Snake {
 
     public static double distBetween(TupleB a, TupleB b)
     {
-        return (Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
+        return 3*(Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
     }
 
     public static double heuristicCostEstimate(TupleB a, TupleB b)
@@ -367,11 +367,11 @@ public class Snake {
         }
         else if (globalBoard[b.x][b.y] == SAFE)
         {
-            return 0;
+            return 10;
         }
         else
         {
-            return 10;
+            return 100;
         }
 
     }
