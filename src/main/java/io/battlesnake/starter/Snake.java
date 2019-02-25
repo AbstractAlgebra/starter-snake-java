@@ -384,8 +384,8 @@ class TupleB
 
     public TupleB(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        this.y = x;
+        this.x = y;
     }
 
     public boolean equals(Object o)
