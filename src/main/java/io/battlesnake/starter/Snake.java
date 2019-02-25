@@ -360,13 +360,13 @@ public class Snake {
         {
             return 100000;
         }
-        if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || a.x <= 0 || a.x >= globalWidth-1 || a.y <= 0 || a.y >= globalHeight-1)
+        else if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || a.x <= 0 || a.x >= globalWidth-1 || a.y <= 0 || a.y >= globalHeight-1)
         {
             return 100000;
         }
-        else
+        else if (globalBoard[b.x][b.y] == SAFE)
         {
-            return 1;
+            return 0;
         }
 
     }
