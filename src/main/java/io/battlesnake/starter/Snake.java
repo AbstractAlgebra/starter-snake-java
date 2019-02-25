@@ -298,6 +298,10 @@ public class Snake {
                     for(int j = -1; j < 2; j+=2)
                     {
                         TupleB neighbour = new TupleB(current.x+i,current.y+j);
+                        if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1)
+                        {
+                            continue;
+                        }
                         if (closedSet.contains(neighbour))
                         {
                             continue;
