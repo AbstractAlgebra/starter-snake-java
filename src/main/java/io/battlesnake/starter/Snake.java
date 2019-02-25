@@ -299,18 +299,18 @@ public class Snake {
                     switch(i)
                     {
                         case 0:
-                            TupleB = new TupleB(current.x+1,current.y);
+                            neighbour = new TupleB(current.x+1,current.y);
                         break;
                         case 1:
-                            TupleB = new TupleB(current.x-1,current.y);
+                            neighbour = new TupleB(current.x-1,current.y);
                         break;
 
                         case 2:
-                            TupleB = new TupleB(current.x,current.y+1);
+                            neighbour = new TupleB(current.x,current.y+1);
                         break;
 
                         case 3:
-                            TupleB = new TupleB(current.x,current.y-1);
+                            neighbour = new TupleB(current.x,current.y-1);
                         break;
 
                     }
