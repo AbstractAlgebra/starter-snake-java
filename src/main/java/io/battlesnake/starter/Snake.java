@@ -276,9 +276,10 @@ public class Snake {
                 {
                     if (fScore.getOrDefault(node,inf) < lowestScore)
                     {
+                        lowestTupleB = node;
+                        lowestScore = fScore.getOrDefault(node,inf);
                         System.out.println("Score is: " + lowestScore);
                         System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
-                        lowestTupleB = node;
                     }
                 }
                 TupleB current = lowestTupleB;
