@@ -274,7 +274,7 @@ public class Snake {
                 TupleB lowestTupleB = goal;
                 for (TupleB node : openSet)
                 {
-                    if (fScore.getOrDefault(node,inf) < lowestScore)
+                    if (fScore.getOrDefault(node,inf) <= lowestScore)
                     {
                         lowestTupleB = node;
                         lowestScore = fScore.getOrDefault(node,inf);
