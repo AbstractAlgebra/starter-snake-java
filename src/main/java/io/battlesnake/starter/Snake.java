@@ -174,7 +174,7 @@ public class Snake {
                     System.out.print(board[y][x]);
                     if(board[y][x] == FOOD)
                     {
-                        food = new TupleB(x,y);
+                        food = new TupleB(x,y); /////////////////////////////ADD SUPP ALT GOAL
                     }
                     if(board[y][x] == MYHEAD)
                     {
@@ -182,6 +182,10 @@ public class Snake {
                     }
                 }
                 //System.out.println();
+            }
+            if(food==null)
+            {
+                food = new TupleB(width/2,height/2);
             }
             //System.out.println("Pre A*");
             TupleB nextSpot = AStar(meHead,food).iterator().next();
