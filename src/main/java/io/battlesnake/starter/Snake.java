@@ -228,7 +228,7 @@ public class Snake {
                 current = cameFrom.get(current);
                 totalPath.add(current);
             }
-            //System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
+            System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
             return totalPath;
 
         }
@@ -278,8 +278,8 @@ public class Snake {
                     {
                         lowestTupleB = node;
                         lowestScore = fScore.getOrDefault(node,inf);
-                        //System.out.println("Score is: " + lowestScore);
-                        //System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                        System.out.println("Score is: " + lowestScore);
+                        System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
                     }
                 }
                 TupleB current = lowestTupleB;
