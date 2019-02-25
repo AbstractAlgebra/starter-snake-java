@@ -166,7 +166,7 @@ public class Snake {
 
             TupleB food = null;
             TupleB meHead = null;
-            System.out.println();
+            //System.out.println();
             for(int x = 0; x < width; x++)
             {
                 for(int y = 0; y < height; y++)
@@ -181,11 +181,11 @@ public class Snake {
                         meHead = new TupleB(x,y);
                     }
                 }
-                System.out.println();
+                //System.out.println();
             }
-            System.out.println("Pre A*");
+            //System.out.println("Pre A*");
             TupleB nextSpot = AStar(meHead,food).iterator().next();
-            System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
+            //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
 
             String responseString = "";
             if(nextSpot.x>meHead.x)
@@ -228,14 +228,14 @@ public class Snake {
                 current = cameFrom.get(current);
                 totalPath.add(current);
             }
-            System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
+            //System.out.println("Reconstructing path @ " + current.x + ", " + current.y);
             return totalPath;
 
         }
 
         public static LinkedHashSet<TupleB> AStar(TupleB start, TupleB goal)
         {
-            System.out.println("A*1");
+            //System.out.println("A*1");
             Set<TupleB> closedSet = new LinkedHashSet<TupleB>();
 
             Set<TupleB> openSet = new LinkedHashSet<TupleB>();
@@ -250,7 +250,7 @@ public class Snake {
 
             fScore.put(start,heuristicCostEstimate(start,goal));
 
-            System.out.println("A*2");
+            //System.out.println("A*2");
 
 
 
@@ -266,8 +266,8 @@ public class Snake {
                     {
                         lowestScore = me.getValue();
                         lowestTupleB = me.getKey();
-                        System.out.println("Score is: " + lowestScore);
-                        System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                        //System.out.println("Score is: " + lowestScore);
+                        //System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
                     }
                 }*/
                 double lowestScore = inf;
@@ -278,21 +278,21 @@ public class Snake {
                     {
                         lowestTupleB = node;
                         lowestScore = fScore.getOrDefault(node,inf);
-                        System.out.println("Score is: " + lowestScore);
-                        System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                        //System.out.println("Score is: " + lowestScore);
+                        //System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
                     }
                 }
                 TupleB current = lowestTupleB;
-                System.out.println("Current: " + current);
+                //System.out.println("Current: " + current);
                 if(current.equals(goal))
                 {
                     return reconstructPath(cameFrom, current);
                 }
-                System.out.println("OS Length: " + openSet.size());
-                System.out.println("CS Length: " + closedSet.size());
+                //System.out.println("OS Length: " + openSet.size());
+                //System.out.println("CS Length: " + closedSet.size());
                 openSet.remove(current);
                 closedSet.add(current);
-                System.out.println("A*3");
+                //System.out.println("A*3");
                 for(int i = -1; i < 2; i+=2)
                 {
                     for(int j = -1; j < 2; j+=2)
@@ -307,10 +307,10 @@ public class Snake {
                             continue;
                         }
                         double tentativegScore = gScore.getOrDefault(current,inf) + distBetween(current,neighbour);
-                        System.out.println("A*4");
+                        //System.out.println("A*4");
                         if (!openSet.contains(neighbour))
                         {
-                            System.out.println("OS Contains: " + neighbour);
+                            //System.out.println("OS Contains: " + neighbour);
                             openSet.add(neighbour);
                         }
                         else if (tentativegScore >= gScore.getOrDefault(neighbour,inf))
@@ -367,10 +367,10 @@ class TupleB
 
     public boolean equals(Object o)
     {
-        System.out.println("in equals");
-        System.out.println(((TupleB)o).x + " " + ((TupleB)o).y);
-        System.out.println(x + " " + y);
-        System.out.println(x == ((TupleB)o).x && y == ((TupleB)o).y);
+        //System.out.println("in equals");
+        //System.out.println(((TupleB)o).x + " " + ((TupleB)o).y);
+        //System.out.println(x + " " + y);
+        //System.out.println(x == ((TupleB)o).x && y == ((TupleB)o).y);
         return (x == ((TupleB)o).x && y == ((TupleB)o).y);
     }
     public String toString()
