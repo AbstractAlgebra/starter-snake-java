@@ -345,7 +345,7 @@ public class Snake {
         {
             return 100000;
         }
-        if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || globalBoard[a.x][a.y] == MYHEAD  || a.x <= 0 || a.x >= globalWidth-1 || a.y <= 0 || a.y >= globalHeight-1)
+        if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || a.x <= 0 || a.x >= globalWidth-1 || a.y <= 0 || a.y >= globalHeight-1)
         {
             return 100000;
         }
