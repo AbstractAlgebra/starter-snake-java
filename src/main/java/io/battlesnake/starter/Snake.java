@@ -249,12 +249,17 @@ public class Snake {
             HashMap<TupleB,Double> fScore = new HashMap<TupleB,Double>();
 
             fScore.put(start,heuristicCostEstimate(start,goal));
+
             System.out.println("A*2");
+
+
+
             while(!openSet.isEmpty())
             {
-                Set< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
-                double lowestScore = inf;
-                TupleB lowestTupleB = null;
+                
+
+                /*Set< HashMap.Entry<TupleB,Double> > st = fScore.entrySet(); 
+
                 for(Map.Entry<TupleB,Double> me:st)
                 {
                     if (me.getValue() < lowestScore)
@@ -263,6 +268,17 @@ public class Snake {
                         lowestTupleB = me.getKey();
                         System.out.println("Score is: " + lowestScore);
                         System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                    }
+                }*/
+                double lowestScore = inf;
+                TupleB lowestTupleB = null;
+                for (TupleB node : openSet)
+                {
+                    if (fScore.getOrDefault(node,inf) < lowestScore)
+                    {
+                        System.out.println("Score is: " + lowestScore);
+                        System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                        lowestTupleB = node;
                     }
                 }
                 TupleB current = lowestTupleB;
@@ -275,7 +291,7 @@ public class Snake {
                 System.out.println("CS Length: " + closedSet.size());
                 openSet.remove(current);
                 closedSet.add(current);
-            System.out.println("A*3");
+                System.out.println("A*3");
                 for(int i = -1; i < 2; i+=2)
                 {
                     for(int j = -1; j < 2; j+=2)
@@ -286,7 +302,7 @@ public class Snake {
                             continue;
                         }
                         double tentativegScore = gScore.getOrDefault(current,inf) + distBetween(current,neighbour);
-            System.out.println("A*4");
+                        System.out.println("A*4");
                         if (!openSet.contains(neighbour))
                         {
                             System.out.println("OS Contains: " + neighbour);
