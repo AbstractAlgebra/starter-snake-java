@@ -368,6 +368,10 @@ public class Snake {
         {
             return 0;
         }
+        else
+        {
+            return 10;
+        }
 
     }
 
