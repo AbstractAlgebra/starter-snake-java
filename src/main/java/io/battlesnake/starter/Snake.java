@@ -356,12 +356,13 @@ public class Snake {
         final int FOOD = 2;
         final int OTHERHEAD = 3;
         final int MYHEAD = 4;
-        if (globalBoard[b.x][b.y] == SNAKE || globalBoard[b.x][b.y] == OTHERHEAD || globalBoard[b.x][b.y] == MYHEAD  || b.x <= 0 || b.x >= globalWidth-1 || b.y <= 0 || b.y >= globalHeight-1)
+        if (globalBoard[b.x][b.y] == SNAKE || globalBoard[b.x][b.y] == OTHERHEAD || globalBoard[b.x][b.y] == MYHEAD  || b.x < 0 || b.x > globalWidth-1 || b.y < 0 || b.y > globalHeight-1)
         {
             return 100000;
         }
-        else if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || a.x <= 0 || a.x >= globalWidth-1 || a.y <= 0 || a.y >= globalHeight-1)
+        else if (globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD || a.x < 0 || a.x > globalWidth-1 || a.y < 0 || a.y > globalHeight-1)
         {
+        
             return 100000;
         }
         else if (globalBoard[b.x][b.y] == SAFE)
