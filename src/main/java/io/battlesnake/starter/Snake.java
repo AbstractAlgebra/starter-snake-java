@@ -172,11 +172,11 @@ public class Snake {
                 for(int y = 0; y < height; y++)
                 {
                     System.out.print(board[y][x]);
-                    if(board[x][y] == FOOD)
+                    if(board[y][x] == FOOD)
                     {
                         food = new TupleB(x,y); /////////////////////////////ADD SUPP ALT GOAL
                     }
-                    if(board[x][y] == MYHEAD)
+                    if(board[y][x] == MYHEAD)
                     {
                         meHead = new TupleB(x,y);
                     }
