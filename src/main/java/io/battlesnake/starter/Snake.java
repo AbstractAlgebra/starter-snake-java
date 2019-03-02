@@ -189,7 +189,7 @@ public class Snake {
             }
             //System.out.println("Pre A*");
             LinkedHashSet<TupleB> path = AStar(meHead,food);
-            TupleB nextSpot = path.toArray()[path.size()-1];
+            TupleB nextSpot = (TupleB)path.toArray()[path.size()-1];
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
             System.out.println("Me @ " + meHead);
             System.out.println("Me Going " + nextSpot);
