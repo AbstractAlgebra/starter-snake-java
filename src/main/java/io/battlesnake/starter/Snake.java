@@ -191,26 +191,28 @@ public class Snake {
             System.out.println("Me @ " + meHead);
             System.out.println("Me Want " + food);
             LinkedHashSet<TupleB> path = AStar(meHead,food);
+            System.out.println(path);
             TupleB nextSpot = (TupleB)path.toArray()[path.size()-2];
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
             System.out.println("Me Going " + nextSpot);
             String responseString = "";
-            if(nextSpot.x>meHead.x && board[nextSpot.y][nextSpot.x]!= SNAKE)
+            if(nextSpot.x>meHead.x)
             {
                 responseString= "right";
             }
-            if(nextSpot.x<meHead.x && board[nextSpot.y][nextSpot.x]!= SNAKE)
+            if(nextSpot.x<meHead.x)
             {
                 responseString= "left";
             }
-            if(nextSpot.y>meHead.y && board[nextSpot.y][nextSpot.x]!= SNAKE)
+            if(nextSpot.y>meHead.y)
             {
                 responseString= "down";
             }            
-            if(nextSpot.y<meHead.y && board[nextSpot.y][nextSpot.x]!= SNAKE)
+            if(nextSpot.y<meHead.y)
             {
                 responseString= "up";
             }
+
             // if(nextSpot.y>meHead.y)
             // {
             //     responseString= "left";
