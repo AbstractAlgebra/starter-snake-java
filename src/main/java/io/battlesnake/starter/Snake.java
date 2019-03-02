@@ -147,7 +147,7 @@ public class Snake {
             {
                 for (JsonNode snakeBody : snake.get("body"))
                 {
-                    board[snakeBody.get("y").asInt()][snakeBody.get("x").asInt()] = SNAKE;
+                    board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = SNAKE;
                 }
                 int otherHeadX = snake.get("body").elements().next().get("x").asInt();
                 int otherHeadY = snake.get("body").elements().next().get("y").asInt();
@@ -190,7 +190,7 @@ public class Snake {
             //System.out.println("Pre A*");
             TupleB nextSpot = AStar(meHead,food).iterator().next();
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
-
+            System.out.println("Me @ " + meHead);
             String responseString = "";
             if(nextSpot.x>meHead.x)
             {
