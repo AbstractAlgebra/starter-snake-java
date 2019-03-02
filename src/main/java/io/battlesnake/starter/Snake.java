@@ -213,19 +213,19 @@ public class Snake {
             // }
             if(nextSpot.y>meHead.y)
             {
-                responseString= "right";
+                responseString= "left";
             }
             if(nextSpot.y<meHead.y)
             {
-                responseString= "left";
+                responseString= "right";
             }
             if(nextSpot.x>meHead.x)
             {
-                responseString= "down";
+                responseString= "up";
             }            
             if(nextSpot.x<meHead.x)
             {
-                responseString= "up";
+                responseString= "down";
             }
 
             response.put("move", responseString);
