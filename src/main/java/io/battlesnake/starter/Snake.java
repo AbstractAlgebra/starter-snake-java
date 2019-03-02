@@ -364,13 +364,13 @@ public class Snake {
 
         if (a == null || b == null || b.x < 0 || b.y < 0 || b.y > globalHeight-1 || b.x > globalWidth-1  || globalBoard[b.x][b.y] == SNAKE || globalBoard[b.x][b.y] == OTHERHEAD || globalBoard[b.x][b.y] == MYHEAD )
         {
-            System.out.println("DANGER A@ " + a + + " " + globalBoard[a.x][a.y] + " || " + b + globalBoard[a.x][a.y]);
+            System.out.println("DANGER A@ " + a + + " " + globalBoard[a.x][a.y]);
             return inf;
 
         }
         else if (a.x < 0 || a.x > globalWidth-1 || a.y < 0 || a.y > globalHeight-1 || globalBoard[a.x][a.y] == SNAKE || globalBoard[a.x][a.y] == OTHERHEAD)
         {
-            System.out.println("DANGER B@ " + a + + " " + globalBoard[b.x][b.y] + " || " + b + globalBoard[b.x][b.y]);
+            System.out.println("DANGER B@ " + b + " " + globalBoard[b.x][b.y]);
             return inf;
         }
         else if (globalBoard[b.x][b.y] == SAFE || globalBoard[a.y][a.x] == SAFE)
