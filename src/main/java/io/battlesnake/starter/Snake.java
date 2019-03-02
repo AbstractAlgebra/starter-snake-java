@@ -193,7 +193,7 @@ public class Snake {
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
             System.out.println("Me @ " + meHead);
             System.out.println("Me Going " + nextSpot);
-            System.out.println("Me Want " + nextSpot);
+            System.out.println("Me Want " + food);
             String responseString = "";
             if(nextSpot.x>meHead.x)
             {
