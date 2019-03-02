@@ -167,9 +167,9 @@ public class Snake {
             TupleB food = null;
             TupleB meHead = null;
             //System.out.println();
-            for(int y = 0; x < width; x++)
+            for(int y = 0; y < width; y++)
             {
-                for(int x = 0; y < height; y++)
+                for(int x = 0; x < height; x++)
                 {
                     System.out.print(board[y][x]);
                     if(board[y][x] == FOOD)
