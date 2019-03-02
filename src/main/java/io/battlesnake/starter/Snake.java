@@ -191,6 +191,7 @@ public class Snake {
             TupleB nextSpot = AStar(meHead,food).iterator().next();
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
             System.out.println("Me @ " + meHead);
+            System.out.println("Me Going " + nextSpot);
             String responseString = "";
             if(nextSpot.x>meHead.x)
             {
