@@ -147,7 +147,7 @@ public class Snake {
             {
                 for (JsonNode snakeBody : snake.get("body"))
                 {
-                    board[snakeBody.get("x").asInt()][snakeBody.get("y").asInt()] = SNAKE;
+                    board[snakeBody.get("y").asInt()][snakeBody.get("x").asInt()] = SNAKE;
                 }
                 int otherHeadX = snake.get("body").elements().next().get("x").asInt();
                 int otherHeadY = snake.get("body").elements().next().get("y").asInt();
@@ -172,11 +172,11 @@ public class Snake {
                 for(int y = 0; y < height; y++)
                 {
                     System.out.print(board[y][x]);
-                    if(board[y][x] == FOOD)
+                    if(board[x][y] == FOOD)
                     {
                         food = new TupleB(x,y); /////////////////////////////ADD SUPP ALT GOAL
                     }
-                    if(board[y][x] == MYHEAD)
+                    if(board[x][y] == MYHEAD)
                     {
                         meHead = new TupleB(x,y);
                     }
