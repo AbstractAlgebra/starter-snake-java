@@ -363,13 +363,13 @@ public class Snake {
         return 3*(Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
     }
 
-    public static double heuristicCostEstimate(TupleB a, TupleB b)
-    {
-        return (Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
+    // public static double heuristicCostEstimate(TupleB a, TupleB b)
+    // {
+    //     return (Math.abs(a.x-b.x) + Math.abs(a.y-b.y));
 
-    }
+    // }
 
-/*
+
     public static double heuristicCostEstimate(TupleB a, TupleB b)
     {
         final int SAFE = 0;
@@ -378,18 +378,18 @@ public class Snake {
         final int OTHERHEAD = 3;
         final int MYHEAD = 4;
 
-        if (a == null || b == null || b.x < 0 || b.y < 0 || b.y > globalHeight-1 || b.x > globalWidth-1  || globalBoard[b.x][b.y] == SNAKE)/* || globalBoard[b.x][b.y] == OTHERHEAD || globalBoard[b.x][b.y] == MYHEAD 
+        if (a == null || b == null || b.x < 0 || b.y < 0 || b.y > globalHeight-1 || b.x > globalWidth-1  || globalBoard[b.y][b.x] == SNAKE)/* || globalBoard[b.x][b.y] == OTHERHEAD || globalBoard[b.x][b.y] == MYHEAD */
         {
-            System.out.println("DANGER A@ " + a + " " + globalBoard[a.x][a.y]);
+            System.out.println("DANGER A@ " + a + " " + globalBoard[a.y][a.x]);
             return 100000;
 
         }
-        else if (a.x < 0 || a.x > globalWidth-1 || a.y < 0 || a.y > globalHeight-1 || globalBoard[a.x][a.y] == SNAKE)/* || globalBoard[a.x][a.y] == OTHERHEAD
+        else if (a.x < 0 || a.x > globalWidth-1 || a.y < 0 || a.y > globalHeight-1 || globalBoard[a.x][a.y] == SNAKE)/* || globalBoard[a.x][a.y] == OTHERHEAD*/
         {
-            System.out.println("DANGER B@ " + b + " " + globalBoard[b.x][b.y]);
+            System.out.println("DANGER B@ " + b + " " + globalBoard[b.y][b.x]);
             return 100000;
         }
-        else if (globalBoard[b.x][b.y] == SAFE || globalBoard[a.x][a.y] == SAFE)
+        else if (globalBoard[b.y][b.x] == SAFE || globalBoard[a.y][a.x] == SAFE)
         {
             return 10;
         }
@@ -398,7 +398,7 @@ public class Snake {
             return 100;
         }
 
-    }*/
+    }
 
 }
 class TupleB
