@@ -181,7 +181,7 @@ public class Snake {
                         meHead = new TupleB(x,y);
                     }
                 }
-                //System.out.println();
+                System.out.println();
             }
             if(food==null)
             {
