@@ -188,12 +188,12 @@ public class Snake {
                 food = new TupleB(width/2,height/2);
             }
             //System.out.println("Pre A*");
+            System.out.println("Me @ " + meHead);
+            System.out.println("Me Want " + food);
             LinkedHashSet<TupleB> path = AStar(meHead,food);
             TupleB nextSpot = (TupleB)path.toArray()[path.size()-2];
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
-            System.out.println("Me @ " + meHead);
             System.out.println("Me Going " + nextSpot);
-            System.out.println("Me Want " + food);
             String responseString = "";
             if(nextSpot.x>meHead.x)
             {
