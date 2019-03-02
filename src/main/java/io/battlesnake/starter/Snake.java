@@ -162,7 +162,7 @@ public class Snake {
             //find head
             int headX = moveRequest.get("you").get("body").elements().next().get("x").asInt();
             int headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
-            board[headX][headY] = MYHEAD;
+            board[headY][headX] = MYHEAD;
 
             TupleB food = null;
             TupleB meHead = null;
