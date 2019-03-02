@@ -325,8 +325,9 @@ public class Snake {
                         break;
 
                     }
-                    if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1 || (globalBoard[neighbour.x][neighbour.y]==SNAKE))
+                    if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1 || (globalBoard[neighbour.y][neighbour.x]==SNAKE))
                     {
+                        System.out.println("Danger@ " + neighbour);
                         continue;
                     }
                     if (closedSet.contains(neighbour))
