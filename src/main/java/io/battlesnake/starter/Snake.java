@@ -151,25 +151,25 @@ public class Snake {
                 }
                 int otherHeadX = snake.get("body").elements().next().get("x").asInt();
                 int otherHeadY = snake.get("body").elements().next().get("y").asInt();
-                board[otherHeadY][otherHeadX] = SNAKE;
+                board[otherHeadX][otherHeadY] = SNAKE;
             }
 
             for (JsonNode food : moveRequest.get("board").get("food"))
             {
-                board[food.get("y").asInt()][food.get("x").asInt()] = FOOD;
+                board[food.get("x").asInt()][food.get("y").asInt()] = FOOD;
             }
 
             //find head
             int headX = moveRequest.get("you").get("body").elements().next().get("x").asInt();
             int headY = moveRequest.get("you").get("body").elements().next().get("y").asInt();
-            board[headY][headX] = MYHEAD;
+            board[headX][headY] = MYHEAD;
 
             TupleB food = null;
             TupleB meHead = null;
             //System.out.println();
-            for(int y = 0; y < width; y++)
+            for(int x = 0; x < width; x++)
             {
-                for(int x = 0; x < height; x++)
+                for(int y = 0; y < height; y++)
                 {
                     System.out.print(board[y][x]);
                     if(board[y][x] == FOOD)
