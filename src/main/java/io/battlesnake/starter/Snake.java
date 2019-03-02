@@ -282,13 +282,13 @@ public class Snake {
                     {
                         lowestTupleB = node;
                         lowestScore = fScore.getOrDefault(node,inf);
-                        System.out.println("Score is: " + lowestScore);
-                        System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
+                        // System.out.println("Score is: " + lowestScore);
+                        // System.out.println("Tuple is: (" + lowestTupleB.x + ", " + lowestTupleB.y + ")");
                     }
                 }
                 TupleB current = lowestTupleB;
-                System.out.println("Current: " + current);
-                System.out.println("Goal: " + goal);
+                // System.out.println("Current: " + current);
+                // System.out.println("Goal: " + goal);
                 if(current.equals(goal))
                 {
                     return reconstructPath(cameFrom, current);
