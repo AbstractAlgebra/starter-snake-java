@@ -156,7 +156,7 @@ public class Snake {
 
             for (JsonNode food : moveRequest.get("board").get("food"))
             {
-                board[food.get("x").asInt()][food.get("y").asInt()] = FOOD;
+                board[food.get("y").asInt()][food.get("x").asInt()] = FOOD;
             }
 
             //find head
