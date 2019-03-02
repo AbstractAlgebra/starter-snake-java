@@ -371,7 +371,7 @@ public class Snake {
         
             return inf;
         }
-        else if (globalBoard[b.x][b.y] == SAFE || globalBoard[a.x][a.y] == SAFE)
+        else if (globalBoard[b.y][b.x] == SAFE || globalBoard[a.y][a.x] == SAFE)
         {
             return 10;
         }
