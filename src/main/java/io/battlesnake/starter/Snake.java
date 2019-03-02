@@ -240,6 +240,11 @@ public class Snake {
 
         public static LinkedHashSet<TupleB> AStar(TupleB start, TupleB goal)
         {
+            final int SAFE = 0;
+            final int SNAKE = 1;
+            final int FOOD = 2;
+            final int OTHERHEAD = 3;
+            final int MYHEAD = 4;
             //System.out.println("A*1");
             Set<TupleB> closedSet = new LinkedHashSet<TupleB>();
 
