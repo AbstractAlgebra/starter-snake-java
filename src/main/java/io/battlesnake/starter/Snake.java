@@ -208,6 +208,7 @@ public class Snake {
             {
                 responseString= "up";
             }
+
             response.put("move", responseString);
             return response;
         }
@@ -319,7 +320,7 @@ public class Snake {
                         break;
 
                     }
-                    if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1)
+                    if(neighbour.x < 0 || neighbour.y < 0 || neighbour.x > globalWidth-1 || neighbour.y > globalHeight-1 || (globalBoard[neighbour.x][neighbour.y]==SNAKE))
                     {
                         continue;
                     }
