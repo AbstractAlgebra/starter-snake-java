@@ -195,19 +195,35 @@ public class Snake {
             //System.out.println("Next spot is: "+ nextSpot.x + ", " + nextSpot.y);
             System.out.println("Me Going " + nextSpot);
             String responseString = "";
-            if(nextSpot.x>meHead.x)
+            // if(nextSpot.x>meHead.x)
+            // {
+            //     responseString= "right";
+            // }
+            // if(nextSpot.x<meHead.x)
+            // {
+            //     responseString= "left";
+            // }
+            // if(nextSpot.y>meHead.y)
+            // {
+            //     responseString= "down";
+            // }            
+            // if(nextSpot.y<meHead.y)
+            // {
+            //     responseString= "up";
+            // }
+            if(nextSpot.y>meHead.y)
             {
                 responseString= "right";
             }
-            if(nextSpot.x<meHead.x)
+            if(nextSpot.y<meHead.y)
             {
                 responseString= "left";
             }
-            if(nextSpot.y>meHead.y)
+            if(nextSpot.x>meHead.x)
             {
                 responseString= "down";
             }            
-            if(nextSpot.y<meHead.y)
+            if(nextSpot.x<meHead.x)
             {
                 responseString= "up";
             }
